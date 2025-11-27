@@ -11,7 +11,7 @@
         {{-- Products Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             @foreach ($products as $product)
-                <a href="#" class="group block animate-fade-in">
+                <a href="/produto/{{ $product['slug'] }}" wire:navigate class="group block animate-fade-in">
                     {{-- Image Container --}}
                     <div class="relative aspect-square overflow-hidden rounded-lg bg-[hsl(0,0%,96%)] mb-4">
                         <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}"

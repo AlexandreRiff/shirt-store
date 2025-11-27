@@ -19,6 +19,7 @@ class HomePage extends Component
         $this->products = [
             [
                 'id' => 1,
+                'slug' => 'camiseta-essential-branca',
                 'name' => 'Camiseta Essential Branca',
                 'category' => 'Masculino',
                 'price' => 79.90,
@@ -31,6 +32,7 @@ class HomePage extends Component
             ],
             [
                 'id' => 2,
+                'slug' => 'camiseta-oversized-preta',
                 'name' => 'Camiseta Oversized Preta',
                 'category' => 'Masculino',
                 'price' => 99.90,
@@ -43,6 +45,7 @@ class HomePage extends Component
             ],
             [
                 'id' => 3,
+                'slug' => 'camiseta-navy-premium',
                 'name' => 'Camiseta Navy Premium',
                 'category' => 'Masculino',
                 'price' => 89.90,
@@ -55,6 +58,7 @@ class HomePage extends Component
             ],
             [
                 'id' => 4,
+                'slug' => 'camiseta-sand-bege',
                 'name' => 'Camiseta Sand Bege',
                 'category' => 'Feminino',
                 'price' => 79.90,
