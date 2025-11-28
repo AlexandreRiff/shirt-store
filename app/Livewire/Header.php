@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Header extends Component
@@ -12,6 +13,19 @@ class Header extends Component
         ['label' => 'Feminino', 'url' => '/produtos?selectedCategories[]=2'],
         ['label' => 'Infantil', 'url' => '/produtos?selectedCategories[]=3'],
     ];
+
+    public function getCartCountProperty(): int
+    {
+        $cart = session()->get('cart', []);
+
+        return collect($cart)->sum('quantity');
+    }
+
+    #[On('cart-updated')]
+    public function refreshCart(): void
+    {
+        // Força re-render do componente
+    }
 
     public function render()
     {

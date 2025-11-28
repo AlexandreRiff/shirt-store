@@ -118,7 +118,7 @@
                                 </svg></button>
                         </div>
                     </div>
-                    <button
+                    <button wire:click="addToCart"
                         class="w-full h-14 bg-[hsl(0,0%,4%)] text-white font-medium rounded-md hover:bg-[hsl(0,0%,15%)] transition-colors">Adicionar
                         ao Carrinho</button>
                     <div class="space-y-3 pt-4 border-t border-[hsl(0,0%,90%)]">

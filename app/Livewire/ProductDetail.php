@@ -217,6 +217,48 @@ class ProductDetail extends Component
         }
     }
 
+    public function addToCart(): void
+    {
+        if (empty($this->selectedSize)) {
+            $this->dispatch('notify', message: 'Selecione um tamanho');
+
+            return;
+        }
+
+        $colorName = collect($this->product['colors'])
+            ->firstWhere('hex', $this->selectedColor)['name'] ?? '';
+
+        $cartItem = [
+            'id' => $this->product['id'],
+            'name' => $this->product['name'],
+            'color' => $colorName,
+            'size' => $this->selectedSize,
+            'price' => $this->product['price'],
+            'quantity' => $this->quantity,
+            'image' => $this->product['images'][0] ?? '',
+        ];
+
+        $cart = session()->get('cart', []);
+
+        // Verifica se já existe item igual (mesmo produto, cor e tamanho)
+        $existingIndex = collect($cart)->search(function ($item) use ($cartItem) {
+            return $item['id'] === $cartItem['id']
+                && $item['color'] === $cartItem['color']
+                && $item['size'] === $cartItem['size'];
+        });
+
+        if ($existingIndex !== false) {
+            $cart[$existingIndex]['quantity'] += $this->quantity;
+        } else {
+            $cart[] = $cartItem;
+        }
+
+        session()->put('cart', $cart);
+
+        $this->dispatch('cart-updated');
+        $this->redirect(route('cart'), navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.product-detail');
