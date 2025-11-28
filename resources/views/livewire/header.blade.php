@@ -18,8 +18,8 @@
                 </a>
                 <nav class="hidden lg:flex items-center space-x-8" aria-label="Menu de navegação principal">
                     @foreach ($menuItems as $item)
-                        <a href="#"
-                            class="text-sm font-medium text-[hsl(0,0%,4%)] hover:text-[hsl(217,100%,50%)] transition-colors">{{ $item }}</a>
+                        <a href="{{ $item['url'] }}" wire:navigate
+                            class="text-sm font-medium text-[hsl(0,0%,4%)] hover:text-[hsl(217,100%,50%)] transition-colors">{{ $item['label'] }}</a>
                     @endforeach
                 </nav>
                 <div class="flex items-center space-x-2">
@@ -99,8 +99,8 @@
             <ul class="space-y-2">
                 @foreach ($menuItems as $item)
                     <li>
-                        <a href="#" @click="mobileMenuOpen = false"
-                            class="block py-3 text-lg font-medium text-[hsl(0,0%,4%)] hover:text-[hsl(217,100%,50%)] transition-colors">{{ $item }}</a>
+                        <a href="{{ $item['url'] }}" wire:navigate @click="mobileMenuOpen = false"
+                            class="block py-3 text-lg font-medium text-[hsl(0,0%,4%)] hover:text-[hsl(217,100%,50%)] transition-colors">{{ $item['label'] }}</a>
                     </li>
                 @endforeach
             </ul>

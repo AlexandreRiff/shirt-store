@@ -86,7 +86,7 @@
 
         {{-- View All Button --}}
         <div class="text-center">
-            <a href="#"
+            <a href="/produtos" wire:navigate
                 class="inline-flex items-center justify-center gap-2 h-11 px-8 border border-[hsl(0,0%,90%)] text-[hsl(0,0%,4%)] text-sm font-medium rounded-md hover:bg-[hsl(0,0%,96%)] hover:text-[hsl(217,100%,50%)] transition-colors">
                 Ver Todos os Produtos
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
