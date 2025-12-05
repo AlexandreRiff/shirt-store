@@ -149,10 +149,57 @@
                             </svg>
                             <span class="absolute top-1 right-1 w-2 h-2 bg-blue-600 rounded-full"></span>
                         </button>
-                        <!-- User Avatar -->
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-medium text-sm sm:text-base">
-                            AD
+                        <!-- User Avatar Dropdown -->
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open"
+                                class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-medium text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                AD
+                            </button>
+
+                            <!-- Dropdown Menu -->
+                            <div x-show="open" @click.away="open = false"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95"
+                                class="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-4 z-50">
+
+                                <!-- User Info -->
+                                <div class="px-4 pb-3 border-b border-gray-100">
+                                    <p class="text-base font-semibold text-gray-900">Administrador</p>
+                                    <p class="text-sm text-gray-500">admin@urbanthreads.com</p>
+                                </div>
+
+                                <!-- Menu Items -->
+                                <div class="py-2">
+                                    <a href="{{ route('admin.profile') }}"
+                                        class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                            </path>
+                                        </svg>
+                                        Meu Perfil
+                                    </a>
+                                </div>
+
+                                <!-- Logout -->
+                                <div class="pt-2 border-t border-gray-100">
+                                    <a href="{{ route('home') }}"
+                                        class="flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                            </path>
+                                        </svg>
+                                        Sair
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
