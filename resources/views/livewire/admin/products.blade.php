@@ -503,11 +503,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 px-6 py-4 flex justify-end gap-3">
+                <div class="bg-gray-50 px-6 py-4 flex justify-end gap-3 rounded-b-xl">
                     <button wire:click="$set('showDeleteModal', false)"
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Cancelar</button>
+                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Cancelar</button>
                     <button wire:click="delete"
-                        class="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700">Excluir</button>
+                        class="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors">Excluir</button>
                 </div>
             </div>
         </div>
